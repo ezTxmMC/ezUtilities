@@ -1,0 +1,25 @@
+name: ezUtilities
+version: '${project.version}'
+main: tv.eztxm.ezutilities.EzUtilities
+api-version: 1.17
+authors: [ ezTxmMC ]
+website: https://dev.eztxmmc.de
+
+commands:
+  gamemode:
+    aliases: [gm]
+  fly:
+  world:
+  importworld:
+  invsee:
+  setspawn:
+  spawn:
+  setwarp:
+  warp:
+  deletewarp:
+    aliases: [delwarp]
+  skull:
+  sethome:
+  home:
+  deletehome:
+    aliases: [delhome]
