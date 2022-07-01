@@ -1,4 +1,6 @@
 package tv.eztxm.ezutilities.listeners;
 
-public class QuitListener {
+import org.bukkit.event.Listener;
+
+public class QuitListener implements Listener {
 }

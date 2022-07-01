@@ -10,6 +10,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import tv.eztxm.ezutilities.commands.*;
 import tv.eztxm.ezutilities.listeners.JoinListener;
+import tv.eztxm.ezutilities.listeners.QuitListener;
 import tv.eztxm.ezutilities.utils.FileManager;
 
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ public final class EzUtilities extends JavaPlugin {
     private void registerListeners() {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new JoinListener(), this);
+        pluginManager.registerEvents(new QuitListener(), this);
     }
 
     public void setWarpLocation(Location location, String locationName) {
