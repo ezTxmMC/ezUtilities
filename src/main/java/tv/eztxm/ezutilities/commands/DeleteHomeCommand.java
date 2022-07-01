@@ -26,9 +26,6 @@ public class DeleteHomeCommand implements CommandExecutor, TabCompleter {
                     if (!homes.contains(args[0])) player.sendMessage(FileManager.getMessage("HomeNotFound"));
                     else {
                         EzUtilities.getInstance().removeHomeLocation(uuid, args[0]);
-                        homes.remove(args[0]);
-                        FileManager.cfg.set("Homes." + uuid + ".List", homes);
-                        FileManager.save();
                         player.sendMessage(FileManager.getMessage("DeleteHome").replace("%home%", args[0]));
                     }
                     return true;
