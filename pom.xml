@@ -6,7 +6,7 @@
 
     <groupId>tv.eztxm</groupId>
     <artifactId>ezUtilities</artifactId>
-    <version>Beta-1.2</version>
+    <version>Beta-1.3</version>
     <packaging>jar</packaging>
 
     <name>ezUtilities</name>
