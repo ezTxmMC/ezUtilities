@@ -87,6 +87,7 @@ public class FileManager {
         msg.addDefault("TeleportTo", "You has been teleported to %target%");
         msg.addDefault("TeleportTo2", "%target1% has been teleported to %target2%");
         msg.addDefault("TeleportPlayerTo", "You has been teleported %target1% to %target2%");
+        msg.addDefault("NumberFormatNotRight", "&cYou Number Format are not a double");
         msg.options().copyDefaults(true);
         save();
     }
