@@ -16,9 +16,13 @@ public class JoinListener implements Listener {
             if (EzUtilities.getInstance().getLocation("Spawn") != null) player.teleport(EzUtilities.getInstance().getLocation("Spawn"));
             else player.sendMessage(FileManager.getMessage("SpawnNotFound"));
         }
-        if (FileManager.getBoolean("CustomJoinMessage")) {
-            event.setJoinMessage(FileManager.getMessage("CustomJoinMessage")
-                    .replace("%player%", player.getName()));
+        if (!FileManager.getBoolean("DisableJoinMessage")) {
+            if (FileManager.getBoolean("CustomJoinMessage")) {
+                event.setJoinMessage(FileManager.getMessage("CustomJoinMessage")
+                        .replace("%player%", player.getName()));
+            }
+        } else {
+            event.setJoinMessage(null);
         }
     }
 }
