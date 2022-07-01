@@ -91,8 +91,8 @@ public class TeleportCommand implements CommandExecutor {
                         }
                     }
                 }
+                default -> player.sendMessage(FileManager.getMessage("HowToUseTeleport"));
             }
-            player.sendMessage(FileManager.getMessage("HowToUseTeleport"));
         }
         return true;
     }
