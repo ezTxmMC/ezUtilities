@@ -1,6 +1,7 @@
 package tv.eztxm.ezutilities.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,15 +37,26 @@ public class TeleportCommand implements CommandExecutor {
                                 return true;
                             }
                             target1.sendMessage(FileManager.getMessage("TeleportTo2").replace("%target1%", args[0]).replace("%target2%", args[1]));
-                            player.sendMessage();
+                            player.sendMessage(FileManager.getMessage("TeleportPlayerTo").replace("%target1%", args[0]).replace("%target2%", args[1]));
                         }
                     }
                 }
                 case 3 -> {
-
+                    player.teleport(new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2])));
+                    player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[0]+ " " + args[1] + " " + args[2]));
                 }
                 case 4 -> {
-
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (target == null) player.sendMessage(FileManager.getMessage("PlayerNotOnline"));
+                    else {
+                        target.teleport(new Location(player.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3])));
+                        if (player == target) {
+                            player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[1] + " " + args[2] + " " + args[3]));
+                            return true;
+                        }
+                        target.sendMessage(FileManager.getMessage("TeleportTo2").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3]));
+                        player.sendMessage(FileManager.getMessage("TeleportPlayerTo").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3]));
+                    }
                 }
                 case 5 -> {
 
