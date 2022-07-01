@@ -68,8 +68,8 @@ public class TeleportCommand implements CommandExecutor {
                 }
                 case 5 -> {
                         try {
-                            player.teleport(new Location(player.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]), Float.parseFloat(args[4]), Float.parseFloat(args[5])));
-                            player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[1] + " " + args[2] + " " + args[3]));
+                            player.teleport(new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Float.parseFloat(args[3]), Float.parseFloat(args[4])));
+                            player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[0] + " " + args[1] + " " + args[2] + " " + args[3] + " " + args[4]));
                         } catch (NumberFormatException e) {
                             player.sendMessage(FileManager.getMessage("NumberFormatNotRight"));
                         }
