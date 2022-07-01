@@ -42,20 +42,28 @@ public class TeleportCommand implements CommandExecutor {
                     }
                 }
                 case 3 -> {
-                    player.teleport(new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2])));
-                    player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[0]+ " " + args[1] + " " + args[2]));
+                    try {
+                        player.teleport(new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2])));
+                        player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[0]+ " " + args[1] + " " + args[2]));
+                    } catch (NumberFormatException e) {
+                        player.sendMessage(FileManager.getMessage("NumberFormatNotRight"));
+                    }
                 }
                 case 4 -> {
                     Player target = Bukkit.getPlayer(args[0]);
                     if (target == null) player.sendMessage(FileManager.getMessage("PlayerNotOnline"));
                     else {
-                        target.teleport(new Location(player.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3])));
-                        if (player == target) {
-                            player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[1] + " " + args[2] + " " + args[3]));
-                            return true;
+                        try {
+                            target.teleport(new Location(player.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3])));
+                            if (player == target) {
+                                player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[1] + " " + args[2] + " " + args[3]));
+                                return true;
+                            }
+                            target.sendMessage(FileManager.getMessage("TeleportTo2").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3]));
+                            player.sendMessage(FileManager.getMessage("TeleportPlayerTo").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3]));
+                        } catch (NumberFormatException e) {
+                            player.sendMessage(FileManager.getMessage("NumberFormatNotRight"));
                         }
-                        target.sendMessage(FileManager.getMessage("TeleportTo2").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3]));
-                        player.sendMessage(FileManager.getMessage("TeleportPlayerTo").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3]));
                     }
                 }
                 case 5 -> {
