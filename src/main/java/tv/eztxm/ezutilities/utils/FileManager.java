@@ -80,6 +80,7 @@ public class FileManager {
         msg.addDefault("Homes", "Your Homes: %homes%");
         msg.addDefault("WarpNotFound", "The Warp can not be found");
         msg.addDefault("HomeNotFound", "The Home can not be found");
+        msg.addDefault("ToManyHomes", "You don't can use more homes");
         msg.addDefault("Skull", "You have the skull of %target%");
         msg.addDefault("CustomJoinMessage", "%player% has joined the server");
         msg.addDefault("CustomQuitMessage", "%player% has left the server");
