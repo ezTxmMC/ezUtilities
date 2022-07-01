@@ -84,6 +84,7 @@ public class FileManager {
         msg.addDefault("Skull", "You have the skull of %target%");
         msg.addDefault("CustomJoinMessage", "%player% has joined the server");
         msg.addDefault("CustomQuitMessage", "%player% has left the server");
+        msg.addDefault("TeleportTo", "You has been teleported to %target%");
         msg.options().copyDefaults(true);
         save();
     }
