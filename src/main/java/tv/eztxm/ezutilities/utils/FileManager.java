@@ -62,6 +62,7 @@ public class FileManager {
         msg.addDefault("HowToUseSetHome", "/sethome <home>");
         msg.addDefault("HowToUseHome", "/home <home>");
         msg.addDefault("HowToUseDeleteHome", "/deletehome <home>");
+        msg.addDefault("HowToUseTeleport", "\n/teleport <player>\n/teleport <player> <player>\n/teleport <x> <y> <z>\n/teleport <player> <x> <y> <z>\n/teleport <x> <y> <z> <yaw> <pitch>\n/teleport <player> <x> <y> <z> <yaw> <pitch>");
         msg.addDefault("PlayerNotOnline", "&cPlayer not Online");
         msg.addDefault("PlayerNotExists", "&cPlayer not exists");
         msg.addDefault("ChangeGamemode", "Your Gamemode now %gamemode%");
