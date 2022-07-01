@@ -38,6 +38,8 @@ public class FileManager {
         cfg.addDefault("SpawnTeleportJoin", false);
         cfg.addDefault("CustomJoinMessage", false);
         cfg.addDefault("CustomQuitMessage", false);
+        cfg.addDefault("DisableJoinMessage", false);
+        cfg.addDefault("DisableQuitMessage", false);
         cfg.addDefault("HomeCount", 1);
         cfg.addDefault("Warps", warps);
         cfg.options().copyDefaults(true);
