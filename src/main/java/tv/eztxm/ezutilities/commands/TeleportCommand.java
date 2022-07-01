@@ -67,10 +67,29 @@ public class TeleportCommand implements CommandExecutor {
                     }
                 }
                 case 5 -> {
-
+                        try {
+                            player.teleport(new Location(player.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]), Float.parseFloat(args[4]), Float.parseFloat(args[5])));
+                            player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[1] + " " + args[2] + " " + args[3]));
+                        } catch (NumberFormatException e) {
+                            player.sendMessage(FileManager.getMessage("NumberFormatNotRight"));
+                        }
                 }
                 case 6 -> {
-
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (target == null) player.sendMessage(FileManager.getMessage("PlayerNotOnline"));
+                    else {
+                        try {
+                            target.teleport(new Location(player.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]), Float.parseFloat(args[4]), Float.parseFloat(args[5])));
+                            if (player == target) {
+                                player.sendMessage(FileManager.getMessage("TeleportTo").replace("%target%", args[1] + " " + args[2] + " " + args[3]));
+                                return true;
+                            }
+                            target.sendMessage(FileManager.getMessage("TeleportTo2").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3] + " " + args[4] + " " + args[5]));
+                            player.sendMessage(FileManager.getMessage("TeleportPlayerTo").replace("%target1%", args[0]).replace("%target2%", args[1] + " " + args[2] + " " + args[3] + " " + args[4] + " " + args[5]));
+                        } catch (NumberFormatException e) {
+                            player.sendMessage(FileManager.getMessage("NumberFormatNotRight"));
+                        }
+                    }
                 }
             }
             player.sendMessage(FileManager.getMessage("HowToUseTeleport"));
