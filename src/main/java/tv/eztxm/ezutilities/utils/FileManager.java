@@ -37,6 +37,7 @@ public class FileManager {
         cfg.addDefault("Prefix", "&9&lezUtilities &8&l| &7");
         cfg.addDefault("SpawnTeleportJoin", false);
         cfg.addDefault("CustomJoinMessage", false);
+        cfg.addDefault("CustomQuitMessage", false);
         cfg.addDefault("HomeCount", 1);
         cfg.addDefault("Warps", warps);
         cfg.options().copyDefaults(true);
