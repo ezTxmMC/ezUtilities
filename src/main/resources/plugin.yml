@@ -23,3 +23,5 @@ commands:
   home:
   deletehome:
     aliases: [delhome]
+  teleport:
+    aliases: [tp]
