@@ -86,7 +86,7 @@ public class FileManager {
         msg.addDefault("CustomQuitMessage", "%player% has left the server");
         msg.addDefault("TeleportTo", "You has been teleported to %target%");
         msg.addDefault("TeleportTo2", "%target1% has been teleported to %target2%");
-        msg.addDefault("TeleportPlayerToPlayer", "You has been teleported %target1% to %target2%");
+        msg.addDefault("TeleportPlayerTo", "You has been teleported %target1% to %target2%");
         msg.options().copyDefaults(true);
         save();
     }
