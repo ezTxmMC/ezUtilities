@@ -80,7 +80,8 @@ public final class EzUtilities extends JavaPlugin {
         FileManager.setLocation("Home." + uuid + "." + locationName + ".World", location.getWorld().getName());
         if (!homes.contains(locationName)) homes.add(locationName);
         FileManager.cfg.set("Homes." + uuid + ".List", homes);
-        FileManager.cfg.set("Homes." + uuid + ".Count", FileManager.cfg.getInt("Home." + uuid + ".Count") + 1);
+        int newCount = FileManager.cfg.getInt("Home." + uuid + ".Count") + 1;
+        FileManager.cfg.set("Homes." + uuid + ".Count", newCount);
         FileManager.save();
         reloadConfig();
     }
@@ -118,6 +119,8 @@ public final class EzUtilities extends JavaPlugin {
 
     public void removeHomeLocation(String uuid, String locationName) {
         FileManager.setLocation("Home." + uuid + "." + locationName, null);
+        int newCount = FileManager.cfg.getInt("Home." + uuid + ".Count") - 1;
+        FileManager.cfg.set("Homes." + uuid + ".Count", newCount);
     }
 
     public Location getLocation(String locationName) {
