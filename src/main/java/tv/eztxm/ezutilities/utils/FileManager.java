@@ -80,6 +80,7 @@ public class FileManager {
         msg.addDefault("HomeNotFound", "The Home can not be found");
         msg.addDefault("Skull", "You have the skull of %target%");
         msg.addDefault("CustomJoinMessage", "%player% has joined the server");
+        msg.addDefault("CustomQuitMessage", "%player% has left the server");
         msg.options().copyDefaults(true);
         save();
     }
