@@ -1,5 +1,6 @@
 package tv.eztxm.ezutilities.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,11 @@ public class TeleportCommand implements CommandExecutor {
         else {
             switch (args.length) {
                 case 1 -> {
-
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (target == null) player.sendMessage(FileManager.getMessage("PlayerNotOnline"));
+                    else {
+                        player.teleport(target);
+                    }
                 }
                 case 2 -> {
 
@@ -30,7 +35,7 @@ public class TeleportCommand implements CommandExecutor {
 
                 }
                 case 6 -> {
-                    
+
                 }
             }
             player.sendMessage(FileManager.getMessage("HowToUseTeleport"));
