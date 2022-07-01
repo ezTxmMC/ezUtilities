@@ -47,6 +47,7 @@ public final class EzUtilities extends JavaPlugin {
         getCommand("sethome").setExecutor(new SetHomeCommand());
         getCommand("home").setExecutor(new HomeCommand());
         getCommand("deletehome").setExecutor(new DeleteHomeCommand());
+        getCommand("teleport").setExecutor(new TeleportCommand());
     }
 
     private void registerListeners() {
