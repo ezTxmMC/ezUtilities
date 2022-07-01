@@ -11,9 +11,13 @@ public class QuitListener implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        if (FileManager.getBoolean("CustomQuitMessage")) {
-            event.setQuitMessage(FileManager.getMessage("CustomQuitMessage")
-                    .replace("%player%", player.getName()));
+        if (!FileManager.getBoolean("DisableQuitMessage")) {
+            if (FileManager.getBoolean("CustomQuitMessage")) {
+                event.setQuitMessage(FileManager.getMessage("CustomQuitMessage")
+                        .replace("%player%", player.getName()));
+            }
+        } else {
+            event.setQuitMessage(null);
         }
     }
 }
